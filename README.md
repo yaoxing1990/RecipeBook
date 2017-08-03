@@ -1,3 +1,3 @@
-# MEAN_Stack
+# Recipe Book 2.0
 
 In progress...
