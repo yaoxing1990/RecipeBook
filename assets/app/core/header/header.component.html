@@ -21,8 +21,9 @@
         <li class="dropdown" appDropdown *ngIf="authService.isAuthenticated()">
           <a style="cursor: pointer;" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a style="cursor: pointer;" (click)="onSaveData()">Save Current Recipe</a></li>
-            <li><a style="cursor: pointer;" (click)="onFetchData()">Fetch All Recipes</a></li>
+            <li><a style="cursor: pointer;" (click)="onSaveData()">Save/Update Current Recipe</a></li>
+            <li><a style="cursor: pointer;" (click)="onDeleteData()">Delete Current Recipe</a></li>
+            <li><a style="cursor: pointer;" (click)="onFetchData()">Refresh Recipe List</a></li>
           </ul>
         </li>
       </ul>

@@ -45,17 +45,6 @@ router.post('/', function (req, res, next) {
             });
         }
 
-        // var recipes = [];
-        // for(var recipe in req.body.obj) {
-        //     recipes.add(new Recipe({
-        //         name: recipe.name,
-        //         description: recipe.description,
-        //         imagePath: recipe.imagePath,
-        //         ingredients: recipe.ingredients,
-        //         user: user
-        //     }));
-        // }
-
         var recipe = new Recipe({
             name: req.body.name,
             description: req.body.description,
@@ -93,7 +82,7 @@ router.patch('/:id', function (req, res, next) {
         if(!recipe) {
             return res.status(500).json({
                 title: 'No recipe Found!',
-                error: {message: 'Message not found'}
+                error: {message: 'Recipe not found'}
             });
         }
         if(recipe.user != decoded.user._id) {
@@ -114,7 +103,7 @@ router.patch('/:id', function (req, res, next) {
                 });
             }
             res.status(200).json({
-                message: 'Updated message',
+                message: 'Updated recipe',
                 obj: result
             });
         });
@@ -132,11 +121,11 @@ router.delete('/:id', function (req, res, next) {
         }
         if(!recipe) {
             return res.status(500).json({
-                title: 'No message Found!',
+                title: 'No recipe Found!',
                 error: {message: 'Message not found'}
             });
         }
-        if(recipe != decoded.user._id) {
+        if(recipe.user != decoded.user._id) {
             return res.status(401).json({
                 title: 'Not Authenticated',
                 error: {message: 'Users do not match'}

@@ -45,4 +45,8 @@ export class RecipeDetailComponent implements OnInit {
     this.router.navigate(['/recipes']);
   }
 
+  isAuthenticated() {
+    return this.recipe.userId == localStorage.getItem("userId");
+  }
+
 }

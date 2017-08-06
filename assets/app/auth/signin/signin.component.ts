@@ -4,6 +4,7 @@ import {FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
 import { AuthService } from '../auth.service';
 import {User} from '../user.model';
 import {Router} from '@angular/router';
+import {RecipeService} from '../../recipes/recipe.service';
 
 @Component({
   selector: 'app-signin',
@@ -14,7 +15,9 @@ export class SigninComponent implements OnInit {
 
     myForm: FormGroup;
 
-    constructor(private authService: AuthService, private router: Router) { }
+    constructor(private authService: AuthService,
+                private router: Router,
+                private recipeService: RecipeService) { }
 
     ngOnInit() {
         this.myForm = new FormGroup({
@@ -33,6 +36,8 @@ export class SigninComponent implements OnInit {
                 data => {
                     localStorage.setItem('token', data.token);
                     localStorage.setItem('userId', data.userId);
+                    this.recipeService.currentUser = data.username;
+                    console.log(data.username);
                     this.router.navigateByUrl('/');
                 },
                 error => console.log(error)

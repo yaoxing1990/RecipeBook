@@ -9,7 +9,7 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <h1>{{ recipe.name }}</h1>
+    <h1>{{ recipe.name }} by {{ recipe.username }}</h1>
   </div>
 </div>
 <div class="row">
@@ -24,8 +24,7 @@
       </button>
       <ul class="dropdown-menu">
         <li><a (click)="onAddToShoppingList()" style="cursor: pointer;">To Shopping List</a></li>
-        <li><a style="cursor: pointer;" (click)="onEditRecipe()">Edit Recipe</a></li>
-        <li><a style="cursor: pointer;" (click)="onDeleteRecipe()">Delete Recipe</a></li>
+        <li><a style="cursor: pointer;" (click)="onEditRecipe()" *ngIf="isAuthenticated()">Edit Recipe</a></li>
       </ul>
     </div>
   </div>
