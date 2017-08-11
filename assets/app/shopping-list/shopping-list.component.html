@@ -12,5 +12,14 @@
         {{ ingredient.name }} ({{ ingredient.amount }})
       </a>
     </ul>
+    <hr>
+    <div class="row">
+      <div class="col-xs-12">
+        <button
+                class="btn btn-success"
+                style="float: right"
+                (click)="onCheckout()">Checkout</button>
+      </div>
+    </div>
   </div>
 </div>

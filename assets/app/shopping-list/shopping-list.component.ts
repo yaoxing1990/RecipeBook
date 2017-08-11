@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from './shopping-list.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-shopping-list',
@@ -13,7 +14,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   ingredients: Ingredient[];
   private subscription: Subscription;
 
-  constructor(private slService: ShoppingListService) { }
+  constructor(private slService: ShoppingListService, private route: Router) { }
 
   ngOnInit() {
     this.ingredients = this.slService.getIngredients();
@@ -27,6 +28,11 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
 
   onEditItem(index: number) {
     this.slService.startedEditing.next(index);
+  }
+
+  onCheckout() {
+    this.route.navigateByUrl('/checkout');
+    this.slService.checkout();
   }
 
   ngOnDestroy() {

@@ -19,14 +19,16 @@ import {CoreModule} from './core/core.module';
 import {ErrorComponent} from './errors/error.component';
 import {ErrorService} from './errors/error.service';
 import {AuthService} from './auth/auth.service';
-import {ActivatedRouteSnapshot} from '@angular/router';
+import {CheckoutComponent} from './checkout/checkout.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-     ErrorComponent
+     ErrorComponent,
+      CheckoutComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import {ActivatedRouteSnapshot} from '@angular/router';
     SharedModule,
     ShoppingListModule,
     AuthModule,
-    CoreModule
+    CoreModule,
+      ReactiveFormsModule,
   ],
   providers: [AuthService, ErrorService],
   bootstrap: [AppComponent]
