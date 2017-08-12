@@ -88,10 +88,10 @@ export class ShoppingListService {
   checkout() {
     this.totalPrice = 0;
       for(var i = 0; i < this.ingredients.length; i++) {
-        console.log(this.priceMap[this.ingredients[i].name]);
-          console.log(this.ingredients[i].amount);
+        // console.log(this.priceMap[this.ingredients[i].name]);
+        //   console.log(this.ingredients[i].amount);
         this.totalPrice += (this.priceMap[this.ingredients[i].name]) * (this.ingredients[i].amount);
       }
-      console.log(this.totalPrice);
+      //console.log(this.totalPrice);
   }
 }

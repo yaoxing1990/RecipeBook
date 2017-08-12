@@ -37,7 +37,7 @@ export class SigninComponent implements OnInit {
                     localStorage.setItem('token', data.token);
                     localStorage.setItem('userId', data.userId);
                     this.recipeService.currentUser = data.username;
-                    console.log(data.username);
+                    //console.log(data.username);
                     this.router.navigateByUrl('/');
                 },
                 error => console.log(error)

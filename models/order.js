@@ -2,9 +2,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var schema = new Schema({
-   user: {type: Schema.Types.ObjectId, ref: 'User'},
-   product: {type: Schema.Types.ObjectId, ref: 'Product'},
-    amount: {type: Number, required: true}
+   name: {type: String, requird: true},
+    price: {type: String, required: true},
+    address: {type: String, required: true},
+    paymentId: {type: String, required: true}
 });
 
 module.exports = mongoose.model('Order', schema);
